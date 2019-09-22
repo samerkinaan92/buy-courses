@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-title>{{ this.course.title }}</mat-card-title>
+    <mat-card-content>{{ this.course.describtion }}</mat-card-content>
+    <mat-card-actions>
+        <div>
+            <div>Price: {{ this.course.price | currency }}</div>
+            <div>Level: {{ this.levelEnum[this.course.level] }}</div>
+        </div>
+        <div>
+            <button (click)="addToCart()" [disabled]="this.course.isAdded" mat-button>
+                <mat-icon>add</mat-icon>
+            </button>
+            <button (click)="removeFromCart()" [disabled]="!this.course.isAdded" mat-button>
+                <mat-icon>remove</mat-icon>
+            </button>
+        </div>
+    </mat-card-actions>
+</mat-card>

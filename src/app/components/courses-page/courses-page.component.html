@@ -1,0 +1,22 @@
+<div class="actions">
+    <input type="search" placeholder="Search Courses..." (change)="search($event.target.value)">
+    <div>
+        <span>Sort By: </span>
+        <select (change)="sort($event.target.value)">
+            <option value="price">Price</option>
+            <option value="level">Level</option>
+        </select>
+    </div>
+</div>
+<div class="container">
+    <div class="courses-list">
+        <div class="spinner-container" *ngIf="showSpinner">
+            <mat-spinner></mat-spinner>
+        </div>
+        <app-course-card *ngFor="let course of courses" [course]="course"></app-course-card>
+    </div>
+    <div class="cart-container">
+        <h3>Your Cart</h3>
+        <app-cart></app-cart>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="list-container">
+        <div class="row" *ngFor="let course of cart">
+            <div class="start">{{ course.title }}</div>
+            <div class="end">{{ course.price | currency}}</div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="row">
+            <div class="start">Sum</div>
+            <div class="end">{{ this.sum | currency}}</div>
+        </div>
+    </div>
+</div>
