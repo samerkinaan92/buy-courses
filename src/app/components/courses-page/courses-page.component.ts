@@ -15,12 +15,14 @@ export class CoursesPageComponent implements OnInit {
   constructor(private courseService: CourseService) { }
 
   ngOnInit() {
+    //subscribes to get courses array from CourseService
     this.courseService.getCourses().subscribe(res => {
       this.courses = res;
       this.showSpinner = false;
     });
   }
 
+  //sort courses by price or level
   sort(sortValue): void {
     if (sortValue === "price") {
       this.courses = this.courses.sort((a: Course, b: Course) => {
@@ -33,6 +35,7 @@ export class CoursesPageComponent implements OnInit {
     }
   }
 
+  //fillters and shows courses that include searchValue in title or describtion
   search(searchValue) {
     this.showSpinner = true;
     this.courseService.getCourses()

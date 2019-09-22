@@ -19,6 +19,7 @@ export class CartComponent implements OnInit, OnDestroy {
   constructor(private cartService: CartService, private courseService: CourseService) { }
 
   ngOnInit(): void {
+    //subscribes to get cart ids array and listens for changes
     this.cartIdsSubscribtion = this.cartService.getCart().subscribe(ids => {
       this.cartIds = ids;
       this.loadCart();
@@ -29,6 +30,7 @@ export class CartComponent implements OnInit, OnDestroy {
     this.cartIdsSubscribtion.unsubscribe();
   }
 
+  //loads courses data
   loadCart(): void {
     this.cart = [];
     this.sum = 0;

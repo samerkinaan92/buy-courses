@@ -8,6 +8,8 @@ import { Level } from '../models/level';
 })
 export class CourseService {
 
+
+  //return courses array after 1 second
   private observalbe: Observable<Course[]> = new Observable(subscriber => {
     setTimeout(() => {
       subscriber.next(this.courses);
@@ -17,6 +19,7 @@ export class CourseService {
 
   constructor() { }
 
+  //initial data
   private courses: Course[] = [{
     id: '0',
     title: 'Title One',
@@ -59,11 +62,12 @@ export class CourseService {
   }];
 
 
-
+  //returns observable for courses list
   getCourses(): Observable<Course[]> {
     return this.observalbe;
   }
 
+  //returns observable for course
   getCourse(id: string): Observable<Course> {
     return new Observable(subscriber => {
       const index = this.findIndex(id);
@@ -88,6 +92,7 @@ export class CourseService {
     }
   }
 
+  //returns course index in courses array for a given id
   private findIndex(id: string): number {
     return this.courses.findIndex(course => course.id === id);
   }

@@ -15,11 +15,13 @@ export class CourseCardComponent {
 
   constructor(private cartService: CartService) { }
 
+  /* adds course to cart */
   addToCart(): void {
     this.course.isAdded = true;
     this.cartService.addCourse(this.course.id);
   }
 
+  /* remove course from cart */
   removeFromCart(): void {
     this.course.isAdded = false;
     this.cartService.removeCourse(this.course.id);

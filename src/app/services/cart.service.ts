@@ -14,6 +14,7 @@ export class CartService {
     this.loadLocalStorage();
   }
 
+  //adds course to cart
   addCourse(id: string): void {
     const index = this.cart.findIndex(cart => cart === id);
     if (index < 0) {
@@ -23,6 +24,7 @@ export class CartService {
     }
   }
 
+  //remove course from cart
   removeCourse(id: string): void {
     const index = this.cart.findIndex(cart => cart === id);
     if (index >= 0) {
@@ -32,10 +34,13 @@ export class CartService {
     }
   }
 
+  //return cart observable
   getCart(): BehaviorSubject<string[]> {
     return this.cartSubject;
   }
 
+
+  //loads cart from localStorage
   private loadLocalStorage(): void{
     const json: string = localStorage.getItem('buy-courses-cart');
     if (json) {
