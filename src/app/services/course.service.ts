@@ -9,12 +9,12 @@ import { Level } from '../models/level';
 export class CourseService {
 
 
-  //return courses array after 1 second
+  //return courses array after 2 second
   private observalbe: Observable<Course[]> = new Observable(subscriber => {
     setTimeout(() => {
       subscriber.next(this.courses);
       subscriber.complete();
-    }, 1000);
+    }, 2000);
   });
 
   constructor() { }
